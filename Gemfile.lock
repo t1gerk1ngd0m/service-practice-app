@@ -58,10 +58,19 @@ GEM
       zeitwerk (~> 2.1, >= 2.1.8)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    annotate (3.0.3)
+      activerecord (>= 3.2, < 7.0)
+      rake (>= 10.4, < 14.0)
     autoprefixer-rails (9.6.5)
       execjs
     bcrypt (3.1.13)
+    better_errors (2.5.1)
+      coderay (>= 1.0.0)
+      erubi (>= 1.0.0)
+      rack (>= 0.9.0)
     bindex (0.8.1)
+    binding_of_caller (0.8.0)
+      debug_inspector (>= 0.0.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
     bootstrap (4.3.1)
@@ -69,6 +78,9 @@ GEM
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
     builder (3.2.3)
+    bullet (6.1.0)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
     byebug (11.0.1)
     capybara (3.29.0)
       addressable
@@ -82,6 +94,7 @@ GEM
     coderay (1.1.2)
     concurrent-ruby (1.1.5)
     crass (1.0.5)
+    debug_inspector (0.0.3)
     devise (4.7.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -154,9 +167,6 @@ GEM
     pry-byebug (3.7.0)
       byebug (~> 11.0)
       pry (~> 0.10)
-    pry-doc (1.0.0)
-      pry (~> 0.11)
-      yard (~> 0.9.11)
     pry-rails (0.3.9)
       pry (>= 0.10.4)
     public_suffix (4.0.1)
@@ -247,6 +257,9 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    seed-fu (2.3.9)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
     selenium-webdriver (3.142.6)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
@@ -279,6 +292,7 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
+    uniform_notifier (1.13.0)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (4.0.1)
@@ -299,15 +313,18 @@ GEM
     websocket-extensions (0.1.4)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    yard (0.9.20)
     zeitwerk (2.2.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
+  better_errors
+  binding_of_caller
   bootsnap (>= 1.4.2)
   bootstrap (~> 4.3.1)
+  bullet
   byebug
   capybara (>= 2.15)
   devise
@@ -323,7 +340,6 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
   pry-byebug
-  pry-doc
   pry-rails
   puma (~> 3.12)
   rails (~> 6.0.0)
@@ -332,6 +348,7 @@ DEPENDENCIES
   rspec-rails (~> 3.8)
   rspec_junit_formatter
   sass-rails (~> 5)
+  seed-fu
   selenium-webdriver
   shoulda-matchers
   slim-rails
