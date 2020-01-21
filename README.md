@@ -1,6 +1,6 @@
 # README
 
-サービス層、Value Object練習用アプリケーション
+サービス層、Value Object, Form Object練習用アプリケーション
 
 ## 環境
 - Ruby 2.6.5
