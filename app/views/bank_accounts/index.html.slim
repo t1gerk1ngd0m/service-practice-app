@@ -1,2 +1,10 @@
-h1 BankAccounts#index
-p Find me in app/views/bank_accounts/index.html.slim
+.card
+  .card-body
+    h4.card-title 銀行口座
+    div
+      label email：
+      label = current_user.email
+    div
+      label 貯蓄額：
+      label = @bank_account.deposit_amount
+    = link_to "送金する", edit_bank_account_path(current_user.bank_account), class: "btn btn-primary"
