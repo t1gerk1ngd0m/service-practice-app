@@ -12,6 +12,7 @@ class BankAccountsController < ApplicationController
   def update
     @transfer_money_form = TransferMoneyForm.new(transfer_money_params)
     if @transfer_money_form.valid?
+      @transfer_money_form.run
       redirect_to action: 'index'
     else
       @users = User.all
@@ -27,8 +28,8 @@ class BankAccountsController < ApplicationController
 
   def transfer_money_params
     params.require(:transfer_money_form).permit(
-      :transfer_user_id,
+      :to_user_id,
       :transfer_amount
-    )
+    ).merge(from_user_id: current_user.id)
   end
 end

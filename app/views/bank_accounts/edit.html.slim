@@ -2,9 +2,10 @@
   = form_with(model: @transfer_money_form, url: bank_account_path, local: true, method: :patch) do |f|
     .form-group
       = f.label "送金先"
-      = f.collection_select :transfer_user_id, @users, :id, :email, {}, class: "form-control"
+      = f.collection_select :to_user_id, @users, :id, :email, {}, class: "form-control"
     .form-group
       = f.label "送金金額"
       = f.text_field :transfer_amount, placeholder: "金額を入力", class: "form-control"
     .form-group
       = f.submit "送金", class: "btn btn-primary"
+      = link_to "戻る", root_path, class: "btn btn-secondary ml-2"
