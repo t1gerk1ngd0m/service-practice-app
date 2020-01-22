@@ -29,7 +29,8 @@ class BankAccountsController < ApplicationController
   def transfer_money_params
     params.require(:transfer_money_form).permit(
       :to_user_id,
-      :transfer_amount
+      :transfer_amount,
+      :currency
     ).merge(from_user_id: current_user.id)
   end
 end

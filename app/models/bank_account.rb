@@ -1,4 +1,6 @@
 class BankAccount < ApplicationRecord
+  composed_of :balance, class_name: "Money", mapping: [%w(deposit_amount amount), %w(currency currency)]
+
   belongs_to :user
 
   enum currency: {

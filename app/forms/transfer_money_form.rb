@@ -5,6 +5,7 @@ class TransferMoneyForm
   attribute :transfer_amount,  Integer
   attribute :from_user_id, Integer
   attribute :to_user_id, Integer
+  attribute :currency, Integer
 
   validates_presence_of %i(
     transfer_amount
@@ -16,7 +17,8 @@ class TransferMoneyForm
     from_bank_account = set_from_bank_account
     to_bank_account = set_to_bank_account
     @transfer_service = TransferService.new(from_bank_account, to_bank_account)
-    @transfer_service.transfer(transfer_amount)
+    transfered_money = Money.new(transfer_amount, currency)
+    @transfer_service.transfer(transfered_money)
   end
 
   private
